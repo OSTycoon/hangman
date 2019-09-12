@@ -63,10 +63,25 @@ public class Server {
         Game repoGame = gameRepository.findById(id).get();
         
         //Add the letter to the list of letters guessed
-        if (letter.length() == 1)
+        if (letter.length() == 1 && !repoGame.getGuessedLetters().contains(letter.toLowerCase()))
         {
             repoGame.setGuessedLetters(repoGame.getGuessedLetters() + letter.toLowerCase());
             gameRepository.save(repoGame);
+        }
+        else
+        {
+            //Check if the entered guess is the matching word.
+            if (repoGame.getWordToGuess().toLowerCase().equalsIgnoreCase(letter))
+            {
+                for (char ch : letter.toCharArray())
+                {
+                    String chString = String.valueOf(ch).toLowerCase();
+                    if (!repoGame.getGuessedLetters().contains(chString) && !chString.equals(" "))
+                    {
+                        repoGame.setGuessedLetters(repoGame.getGuessedLetters() + chString);
+                    }
+                }
+            }
         }
         
         String guessboard = generateGuessboard(repoGame);
