@@ -1,0 +1,11 @@
+[Unit]
+Description=Hangman Server
+After=syslog.target
+
+[Service]
+SyslogIdentifier=hangman
+ExecStart=/opt/hangman/hangman.jar
+User=root
+Type=simple
+[Install]
+WantedBy=multi-user.target

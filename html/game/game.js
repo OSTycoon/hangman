@@ -25,6 +25,10 @@ $(function () {
         if (game.gameOver)
         {
             $("#submit").prop("disabled", true)
+            if (game.numberOfFailedGuesses < 6)
+            {
+                $("#status").html("You Win")
+            }
         }
         switch (game.numberOfFailedGuesses) {
             case 0:
@@ -102,7 +106,8 @@ $(function () {
                 $("#picture").append("     |<br>")
                 $("#picture").append("     |<br>")
                 $("#picture").append("+++++++++++++++<br>")
-                $("#picture").append("++ You  Lost ++<br>")
+                $("#picture").append("+++++++++++++++<br>")
+                $("#status").html("You Lose")
                 break
         }
     }
