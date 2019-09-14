@@ -2,7 +2,7 @@ $(function () {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     $.ajax({
-        url: "../hangman/getGame/" + id,
+        url: "/getGame/" + id,
         success: (function (data) {
             updateGame(data)
         })
@@ -10,7 +10,7 @@ $(function () {
     $("#submit").click(function() {
         $.ajax ({
             type: "PUT",
-            url: "../hangman/guessLetter/" + id + "/" + $("#letterToGuess").val(),
+            url: "/guessLetter/" + id + "/" + $("#letterToGuess").val(),
             success: (function(data) {
                 $("#letterToGuess").val("");
                 updateGame(data)
