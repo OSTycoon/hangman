@@ -1,7 +1,7 @@
 version: '3'
 services:
   hangman:
-    build: ./hangman
+    #build: ./hangman
     image: hangman:0.0.1
     ports:
       - 80:8080
