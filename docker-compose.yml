@@ -1,0 +1,33 @@
+version: '3'
+services:
+  hangman:
+    image: ${IMAGE_NAME}
+    ports:
+      - 80:8080
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'hangman'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'removed'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'removed'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'password'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+# Names our volume
+volumes:
+  my-db:

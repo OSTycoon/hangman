@@ -1,6 +1,6 @@
 $(function() {
     $.ajax({
-        url: "hangman/getGames",
+        url: "/getGames",
         success: (function (data) {
             data.forEach(function(game) {
                 addRow(game);
@@ -11,7 +11,7 @@ $(function() {
     $("#submit").click(function() {
         $.ajax({
             type: "POST",
-            url: "hangman/newGame/" + $("#newGameText").val(),
+            url: "/newGame/" + $("#newGameText").val(),
             success: (function(game) {
                 addRow(game);
             })
@@ -21,5 +21,5 @@ $(function() {
 
 function addRow(game)
 {
-    $('#gameList tr:last').after('<tr><td>' + game.id + '</td><td>' + game.guessBoard + '</td><td>' + game.guessedLetters + '</td><td>' + game.gameOver + '</td><td><a href="game?id=' + game.id + '">Link to Game</a>');
+    $('#gameList tr:last').after('<tr><td>' + game.id + '</td><td>' + game.guessBoard + '</td><td>' + game.guessedLetters + '</td><td>' + game.gameOver + '</td><td><a href="game/index.html?id=' + game.id + '">Link to Game</a>');
 }
