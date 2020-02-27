@@ -1,6 +1,6 @@
 $(function() {
     $.ajax({
-        url: "/getGames",
+        url: "hangman/getGames",
         success: (function (data) {
             data.forEach(function(game) {
                 addRow(game);
@@ -9,17 +9,27 @@ $(function() {
     })
 
     $("#submit").click(function() {
-        $.ajax({
-            type: "POST",
-            url: "/newGame/" + $("#newGameText").val(),
-            success: (function(game) {
-                addRow(game);
-            })
+        submitGame();
+    })
+    $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+            submitGame();
+        }
+    });
+})
+
+function submitGame() {
+    $.ajax({
+        type: "POST",
+        url: "hangman/newGame/" + $("#newGameText").val(),
+        success: (function(game) {
+            addRow(game);
         })
     })
-})
+    $("#newGameText").val("");
+}
 
 function addRow(game)
 {
-    $('#gameList tr:last').after('<tr><td>' + game.id + '</td><td>' + game.guessBoard + '</td><td>' + game.guessedLetters + '</td><td>' + game.gameOver + '</td><td><a href="game/index.html?id=' + game.id + '">Link to Game</a>');
+    $('#gameList tr:last').after('<tr><td>' + game.id + '</td><td>' + game.guessBoard + '</td><td>' + game.guessedLetters + '</td><td>' + game.gameOver + '</td><td><a href="game?id=' + game.id + '">Link to Game</a>');
 }

@@ -2,22 +2,30 @@ $(function () {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     $.ajax({
-        url: "/getGame/" + id,
+        url: "../hangman/getGame/" + id,
         success: (function (data) {
             updateGame(data)
         })
     })
     $("#submit").click(function() {
-        $.ajax ({
+        submitLetter();
+    })
+    $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+            submitLetter();
+        }
+    })
+
+    function submitLetter() {
+         $.ajax ({
             type: "PUT",
-            url: "/guessLetter/" + id + "/" + $("#letterToGuess").val(),
+            url: "../hangman/guessLetter/" + id + "/" + $("#letterToGuess").val(),
             success: (function(data) {
                 $("#letterToGuess").val("");
                 updateGame(data)
             })
         })
-    })
-
+    }
     function updateGame(game) {
         console.log("Updating Game")
         $("#guessBoard").html(game.guessBoard)
