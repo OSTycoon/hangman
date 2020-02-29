@@ -1,4 +1,5 @@
 $(function() {
+    var hidden = false;
     $.ajax({
         url: "hangman/getGames",
         success: (function (data) {
@@ -14,6 +15,18 @@ $(function() {
     $(document).on('keypress',function(e) {
         if(e.which == 13) {
             submitGame();
+        }
+    });
+    $("#hideInput").change(function() {
+        if(hidden)
+        {
+            $("#newGameText").attr('type', 'text');
+            hidden=!hidden
+        }
+        else
+        {
+            $("#newGameText").attr('type', 'password');
+            hidden=!hidden
         }
     });
 })
