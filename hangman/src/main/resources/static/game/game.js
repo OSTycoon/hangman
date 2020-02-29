@@ -41,7 +41,7 @@ $(function () {
         switch (game.numberOfFailedGuesses) {
             case 0:
                 $("#picture").html("")
-                $("#picture").append("     ______<br>")
+                $("#picture").append("      _____<br>")
                 $("#picture").append("     |<br>")
                 $("#picture").append("     |<br>")
                 $("#picture").append("     |<br>")
@@ -52,7 +52,7 @@ $(function () {
                 break
             case 1:
                 $("#picture").html("")
-                $("#picture").append("     ______<br>")
+                $("#picture").append("      _____<br>")
                 $("#picture").append("     |     O<br>")
                 $("#picture").append("     |<br>")
                 $("#picture").append("     |<br>")
@@ -63,7 +63,7 @@ $(function () {
                 break
             case 2:
                 $("#picture").html("")
-                $("#picture").append("     ______<br>")
+                $("#picture").append("      _____<br>")
                 $("#picture").append("     |     O<br>")
                 $("#picture").append("     |     |<br>")
                 $("#picture").append("     |<br>")
@@ -74,7 +74,7 @@ $(function () {
                 break
             case 3:
                 $("#picture").html("")
-                $("#picture").append("     ______<br>")
+                $("#picture").append("      _____<br>")
                 $("#picture").append("     |    \\O<br>")
                 $("#picture").append("     |     |<br>")
                 $("#picture").append("     |<br>")
@@ -85,8 +85,8 @@ $(function () {
                 break
             case 4:
                 $("#picture").html("")
-                $("#picture").append("     ______<br>")
-                $("#picture").append("     |     \\O/<br>")
+                $("#picture").append("      _____<br>")
+                $("#picture").append("     |    \\O/<br>")
                 $("#picture").append("     |     |<br>")
                 $("#picture").append("     |<br>")
                 $("#picture").append("     |<br>")
@@ -96,8 +96,8 @@ $(function () {
                 break
             case 5:
                 $("#picture").html("")
-                $("#picture").append("     ______<br>")
-                $("#picture").append("     |     \\O/<br>")
+                $("#picture").append("      _____<br>")
+                $("#picture").append("     |    \\O/<br>")
                 $("#picture").append("     |     |<br>")
                 $("#picture").append("     |    /<br>")
                 $("#picture").append("     |<br>")
@@ -107,8 +107,8 @@ $(function () {
                 break
             case 6:
                 $("#picture").html("")
-                $("#picture").append("     ______<br>")
-                $("#picture").append("     |     \\O/<br>")
+                $("#picture").append("      _____<br>")
+                $("#picture").append("     |    \\O/<br>")
                 $("#picture").append("     |     |<br>")
                 $("#picture").append("     |    / \\<br>")
                 $("#picture").append("     |<br>")
