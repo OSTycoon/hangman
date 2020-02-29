@@ -31,5 +31,15 @@ function submitGame() {
 
 function addRow(game)
 {
-    $('#gameList tr:last').after('<tr><td>' + game.id + '</td><td>' + game.guessBoard + '</td><td>' + game.guessedLetters + '</td><td>' + game.gameOver + '</td><td><a href="game?id=' + game.id + '">Link to Game</a>');
+    var numberOfRows = $('#gameList').children().length;
+    var insertData = '<tr><td>' + game.id + '</td><td>' + game.guessBoard + '</td><td>' + game.guessedLetters + '</td><td>' + game.gameOver + '</td><td><a href="game?id=' + game.id + '">Link to Game</a>';
+    if (numberOfRows <= 1)
+    {
+        $('#gameList tbody').last().after(insertData);
+    }
+    else
+    {
+        $('#gameList tbody').first().after(insertData);
+    }
+    
 }
